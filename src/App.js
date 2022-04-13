@@ -17,7 +17,7 @@ class App extends Component {
     return (
       <div className="App" style={{ margin: '0 auto', width: '200px' }}>
         <p>React </p>
-        <button onClick={this.handleClickPlus}>+</button>
+        <button onClick={this.handleClickPlus}>++</button>
         <span style={{ margin: '0 0.75rem', display: 'inline-block' }}>
           {this.state.count}
         </span>
