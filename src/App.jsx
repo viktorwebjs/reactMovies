@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
+const countStyle = { margin: '0 0.75rem', display: 'inline-block' };
 class App extends Component {
   state = {
     count: 0,
@@ -15,12 +16,10 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App" style={{ margin: '0 auto', width: '200px' }}>
+      <div className="App" style={{ margin: '0 auto' }}>
         <p>React </p>
-        <button onClick={this.handleClickPlus}>++</button>
-        <span style={{ margin: '0 0.75rem', display: 'inline-block' }}>
-          {this.state.count}
-        </span>
+        <button onClick={this.handleClickPlus}>+</button>
+        <span style={countStyle}>{this.state.count}</span>
         <button onClick={this.handleClickMinus}>- </button>
       </div>
     );
