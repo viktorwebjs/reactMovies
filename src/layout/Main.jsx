@@ -1,7 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Movies from '../components/Movies';
+class Main extends Component {
+  state = {
+    movies: [],
+  };
 
-function Main(props) {
-  return <main className="container content">Hello from movies app</main>;
+  componentDidMount() {
+    fetch(`http://www.omdbapi.com/?apikey=dadea754&s=matrix`)
+      .then((response) => response.json())
+
+      .then((data) => this.setState({ movies: data.Search }));
+  }
+
+  render() {
+    const { movies } = this.state;
+
+    return (
+      <main className="container content">
+        {movies.length ? (
+          <Movies movies={this.state.movies} />
+        ) : (
+          <h3> Loading...</h3>
+        )}
+      </main>
+    );
+  }
 }
 
 export default Main;
