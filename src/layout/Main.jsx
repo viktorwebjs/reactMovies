@@ -5,11 +5,18 @@ class Main extends Component {
     movies: [],
   };
 
+  // componentDidMount() {
+  //   fetch(`http://www.omdbapi.com/?apikey=dadea754&s=matrix`)
+  //     .then((response) => response.json())
+
+  //     .then((data) => this.setState({ movies: data.Search }));
+  // }
   componentDidMount() {
-    fetch(`http://www.omdbapi.com/?apikey=dadea754&s=matrix`)
+    fetch(`https://jsonplaceholder.typicode.com/photos`)
       .then((response) => response.json())
 
-      .then((data) => this.setState({ movies: data.Search }));
+      // .then((data) => this.setState({ movies: data.Search }));
+      .then((data) => this.setState({ movies: data }));
   }
 
   render() {
