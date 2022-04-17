@@ -3,7 +3,7 @@ import Movies from '../components/Movies';
 import Preloader from '../components/Preloader';
 import Search from '../components/Search';
 
-const API_KEY = process.env.REACT_APP_API_KEY;
+const API_KEY = process.env.REACT__APP__API__KEY;
 class Main extends Component {
   state = {
     movies: [],
@@ -13,8 +13,11 @@ class Main extends Component {
   componentDidMount() {
     fetch(`https://www.omdbapi.com/?apikey=${API_KEY}s=matrix`)
       .then((response) => response.json())
-
-      .then((data) => this.setState({ movies: data.Search, loading: false }));
+      .then((data) => this.setState({ movies: data.Search, loading: false }))
+      .catch((err) => {
+        console.log(err);
+        this.setState({ loading: false });
+      });
   }
 
   searchMovies = (str, type = 'all') => {
@@ -25,8 +28,11 @@ class Main extends Component {
       }`
     )
       .then((response) => response.json())
-
-      .then((data) => this.setState({ movies: data.Search, loading: false }));
+      .then((data) => this.setState({ movies: data.Search, loading: false }))
+      .catch((err) => {
+        console.log(err);
+        this.setState({ loading: false });
+      });
   };
 
   render() {
