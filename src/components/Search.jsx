@@ -3,12 +3,21 @@ import React, { Component } from 'react';
 class Search extends Component {
   state = {
     search: '',
+    type: 'all',
   };
 
   handleKey = (event) => {
     if (event.key === 'Enter') {
-      this.props.searchMovies(this.state.search);
+      this.props.searchMovies(this.state.search, this.state.type);
     }
+  };
+  handleFilter = (event) => {
+    this.setState(
+      () => ({ type: event.target.dataset.type }),
+      () => {
+        this.props.searchMovies(this.state.search, this.state.type);
+      }
+    );
   };
   render() {
     return (
@@ -26,10 +35,47 @@ class Search extends Component {
             />
             <button
               className="btn search-btn"
-              onClick={() => this.props.searchMovies(this.state.search)}
+              onClick={() =>
+                this.props.searchMovies(this.state.search, this.state.type)
+              }
             >
               Search
             </button>
+          </div>
+          <div>
+            <label>
+              <input
+                className="with-gap"
+                name="type"
+                type="radio"
+                data-type="All"
+                checked={this.state.type === 'all'}
+                onChange={this.handleFilter}
+              />
+              <span>All</span>
+            </label>
+            <label>
+              <input
+                className="with-gap"
+                name="type"
+                type="radio"
+                data-type="movie"
+                checked={this.state.type === 'movie'}
+                onChange={this.handleFilter}
+              />
+              <span>Movies only</span>
+            </label>
+            <label>
+              <input
+                className="with-gap"
+                name="type"
+                type="radio"
+                data-type="series"
+                checked={this.state.type === 'series'}
+                onChange={this.handleFilter}
+              />
+              <span>Series only</span>
+            </label>
           </div>
         </div>
       </div>

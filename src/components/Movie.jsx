@@ -8,7 +8,6 @@ function Movie(props) {
     Type: type,
     Poster: poster,
   } = props;
-  // const { albumId, id, title, url } = props;
 
   return (
     <div id={id} className="card movie">

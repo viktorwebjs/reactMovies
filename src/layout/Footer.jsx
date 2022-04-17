@@ -6,9 +6,12 @@ function Footer(props) {
       <footer className="page-footer teal">
         <div className="footer-copyright">
           <div className="container">
-            © {new Date().getFullYear()} Copyright Text
-            <a className="grey-text text-lighten-4 right" href="#!">
-              Repo
+            © {new Date().getFullYear()} Copyright viktor.webjs
+            <a
+              className="grey-text text-lighten-4 right"
+              href="https://github.com/viktorwebjs/reactMovies"
+            >
+              github
             </a>
           </div>
         </div>
