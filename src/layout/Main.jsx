@@ -8,7 +8,7 @@ class Main extends Component {
   };
 
   componentDidMount() {
-    fetch(`http://www.omdbapi.com/?apikey=dadea754&s=matrix`)
+    fetch(`https://www.omdbapi.com/?apikey=dadea754&s=matrix`)
       .then((response) => response.json())
 
       .then((data) => this.setState({ movies: data.Search }));
