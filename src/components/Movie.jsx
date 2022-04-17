@@ -1,26 +1,26 @@
 import React from 'react';
 
 function Movie(props) {
-  // const {
-  //   Title: title,
-  //   Year: year,
-  //   imdbID: id,
-  //   Type: type,
-  //   Poster: poster,
-  // } = props;
-  const { albumId, id, title, url } = props;
+  const {
+    Title: title,
+    Year: year,
+    imdbID: id,
+    Type: type,
+    Poster: poster,
+  } = props;
+  // const { albumId, id, title, url } = props;
 
   return (
     <div id={id} className="card movie">
       <div className="card-image waves-effect waves-block waves-light">
-        {url === 'N/A' ? (
+        {poster === 'N/A' ? (
           <img
             className="activator"
             src={`https://via.placeholder.com/300x400?text=${title}`}
             alt=""
           />
         ) : (
-          <img className="activator" src={url} alt="" />
+          <img className="activator" src={poster} alt="" />
         )}
       </div>
       <div className="card-content">
@@ -28,8 +28,9 @@ function Movie(props) {
           {title}
         </span>
         <p>
-          {albumId}
-          {/* <span className="right">{type}</span> */}
+          {year}
+          {/* {albumId} */}
+          <span className="right">{type}</span>
         </p>
       </div>
     </div>
