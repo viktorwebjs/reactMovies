@@ -5,12 +5,12 @@ import Search from '../components/Search';
 
 // const API_KEY = process.env.REACT_APP_API_KEY;
 function Main() {
-  const [movies, setMovies] = useState();
+  const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const searchMovies = (str, type = 'all') => {
     setLoading(true);
-    this.setState({ loading: true });
+    // this.setState({ loading: true });
     fetch(
       `https://www.omdbapi.com/?apikey=dadea754&s=${str}${
         type !== 'all' ? `&type=${type}` : ''
